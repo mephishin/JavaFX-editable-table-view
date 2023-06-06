@@ -1,39 +1,17 @@
 package com.table.editabletableview.model;
 
-import com.table.editabletableview.controller.HelloController;
-import javafx.collections.ObservableList;
-import javafx.scene.control.Button;
-
 public class User {
 
-    /*Add the strings and buttons to be used in the application*/
-    String id, name, email, notes;
+    String id, A, B, C;
 
-    Button update;
-
-    /* Constructors */
-    public User(String id, String name, String email, String notes, Button update) {
+    public User(String id, String A, String B, String C) {
         this.id = id;
-        this.name = name;
-        this.email = email;
-        this.notes = notes;
-        this.update = update;
+        this.A = A;
+        this.B = B;
+        this.C = C;
 
-        update.setOnAction(e -> {
-            ObservableList<User> users = HelloController.table_info_app.getSelectionModel().getSelectedItems();
-
-            for (User user : users) {
-                if (user.getUpdate() == update) {
-                    System.out.println("id: " + user.getId());
-                    System.out.println("name: " + user.getName());
-                    System.out.println("email: " + user.getEmail());
-                    System.out.println("notes: " + user.getNotes());
-                }
-            }
-        });
     }
 
-    /* Getters and setters */
     public String getId() {
         return id;
     }
@@ -42,31 +20,52 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getA() {
+        return A;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setA(String a) {
+        A = a;
     }
 
-    public String getEmail() {
-        return email;
+    public String getB() {
+        return B;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setB(String b) {
+        B = b;
     }
 
-    public String getNotes() {
-        return notes;
+    public String getC() {
+        return C;
     }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
+    public void setC(String c) {
+        C = c;
     }
 
-    public Button getUpdate() {
-        return update;
+    public String getVar(String var) {
+        if (var.equals("A")) {
+            return this.getA();
+        }
+        if (var.equals("B")) {
+            return this.getB();
+        }
+        if (var.equals("C")) {
+            return this.getC();
+        }
+        else {
+            return "";
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", A='" + A + '\'' +
+                ", B='" + B + '\'' +
+                ", C='" + C + '\'' +
+                '}';
     }
 }
